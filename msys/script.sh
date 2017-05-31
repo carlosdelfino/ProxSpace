@@ -37,6 +37,7 @@ for i in $( ls ); do
 			cp -r $buildDir/common/* $buildDir/$i
 			cp $pm3Dir/$i/client/proxmark3.exe $buildDir/$i/win32
 			cp $pm3Dir/$i/client/flasher.exe $buildDir/$i/win32
+			cp $pm3Dir/$i/client/*.dic $buildDir/$i/win32
 			cp $pm3Dir/$i/client/lualibs/* $buildDir/$i/win32/lualibs
 			cp $pm3Dir/$i/client/scripts/* $buildDir/$i/win32/scripts
 			cp $pm3Dir/$i/armsrc/obj/fullimage.elf $buildDir/$i/firmware_win
