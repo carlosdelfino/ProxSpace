@@ -21,6 +21,7 @@ for i in $( ls ); do
 			mkdir -p $buildDir/$i/win32/scripts
 			mkdir -p $buildDir/$i/win32/platforms
 			mkdir -p $buildDir/$i/firmware_win/bootrom
+			mkdir -p "$buildDir/$i/Windows Driver"
 			mkdir -p "$buildDir/$i/firmware_win/JTAG Only"
 			mkdir -p $uploadDir/$i
 			rm -rf $buildDir/$i/win32/lualibs/*
@@ -45,6 +46,7 @@ for i in $( ls ); do
 			cp $pm3Dir/$i/recovery/bootrom.bin "$buildDir/$i/firmware_win/JTAG Only"
 			cp $pm3Dir/$i/recovery/fullimage.bin "$buildDir/$i/firmware_win/JTAG Only"
 			cp $pm3Dir/$i/recovery/proxmark3_recovery.bin "$buildDir/$i/firmware_win/JTAG Only"
+			cp $pm3Dir/$i/driver/proxmark3.inf "$buildDir/$i/Windows Driver"
 			cd $buildDir/$i
 			zip -r $uploadDir/$i/$date-$hash.zip ./*
 		else
