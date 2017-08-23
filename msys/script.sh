@@ -19,6 +19,7 @@ for i in $( ls ); do
 		if [ $? -eq 0 ]; then
 			mkdir -p $buildDir/$i/win32/lualibs
 			mkdir -p $buildDir/$i/win32/scripts
+			mkdir -p $buildDir/$i/win32/hardnested
 			mkdir -p $buildDir/$i/win32/platforms
 			mkdir -p $buildDir/$i/firmware_win/bootrom
 			mkdir -p "$buildDir/$i/Windows Driver"
@@ -26,6 +27,7 @@ for i in $( ls ); do
 			mkdir -p $uploadDir/$i
 			rm -rf $buildDir/$i/win32/lualibs/*
 			rm -rf $buildDir/$i/win32/scripts/*
+			rm -rf $buildDir/$i/win32/hardnested/*
 			cp $qtDir/bin/Qt5Core.dll $buildDir/$i/win32
 			cp $qtDir/bin/Qt5Gui.dll $buildDir/$i/win32
 			cp $qtDir/bin/Qt5Widgets.dll $buildDir/$i/win32
@@ -40,6 +42,9 @@ for i in $( ls ); do
 			cp $pm3Dir/$i/client/*.dic $buildDir/$i/win32
 			cp $pm3Dir/$i/client/lualibs/* $buildDir/$i/win32/lualibs
 			cp $pm3Dir/$i/client/scripts/* $buildDir/$i/win32/scripts
+			cp -r $pm3Dir/$i/client/hardnested/* $buildDir/$i/win32/hardnested
+			rm $buildDir/$i/win32/hardnested/*.h
+			rm $buildDir/$i/win32/hardnested/*.c
 			cp $pm3Dir/$i/armsrc/obj/fullimage.elf $buildDir/$i/firmware_win
 			cp $pm3Dir/$i/armsrc/obj/fullimage.s19 $buildDir/$i/firmware_win
 			cp $pm3Dir/$i/bootrom/obj/bootrom.elf $buildDir/$i/firmware_win/bootrom
